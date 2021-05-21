@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu May  6 12:51:58 2021
-
-@author: sindrev
+@author: Sindre Vatnehol
+@institute: Insitute of Marine Research, Bergen - Norway
+@emai: sindre.vatnehol@hi.no
 """
 
 
@@ -16,8 +16,8 @@ def runReportFromLSSS(URLprefix= 'http://localhost:8000',
     
     
     
-    import requests, json
-    from datetime import date
+    import requests
+#    from datetime import date
     
             
         
@@ -89,11 +89,20 @@ def runReportFromLSSS(URLprefix= 'http://localhost:8000',
     
         
     #write the LUF25 report
+    print('Writing xml files')
     r = requests.get(URLprefix + '/lsss/database/report/25')
 
     
-    with open(get('/lsss/survey/config/unit/DataConf/parameter/ReportsDir')['value']+'/test.xml', 'w+') as f:
+    with open(get('/lsss/survey/config/unit/DataConf/parameter/ReportsDir')['value']+'/LUF25.xml', 'w+') as f:
             f.write(r.text)
+            
+            
+    r = requests.get(URLprefix + '/lsss/database/report/20')
+
+    
+    with open(get('/lsss/survey/config/unit/DataConf/parameter/ReportsDir')['value']+'/LUF20.xml', 'w+') as f:
+            f.write(r.text)
+            
 
     get('/lsss/data/wait')
     

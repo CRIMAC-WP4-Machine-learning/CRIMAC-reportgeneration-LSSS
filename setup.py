@@ -34,7 +34,7 @@ opts = dict(name='reportgeneration-LSSS',
             packages=find_packages(),
             install_requires=INSTALL_REQUIRES,
             tests_require='tox',
-            scripts=['LSSSintegration/process/LSSSintegration.py','LSSSintegration/writer/metadata_convention.py'],
+            scripts=['LSSSintegration/process/LSSSintegration.py'],
             dependency_links=['https://github.com/CRIMAC-WP4-Machine-learning/CRIMAC-preprocessing.git']
             )
 
